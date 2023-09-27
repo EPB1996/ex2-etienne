@@ -1,0 +1,13 @@
+.footer-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.footer-bar{
+    height: 5%;
+    bottom: 0;
+    position: fixed;
+}

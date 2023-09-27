@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./acceuil.component.scss']
 })
 export class AcceuilComponent {
-
+  gifUrl = '../assets/developer.gif';
 }
