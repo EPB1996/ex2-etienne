@@ -10,7 +10,8 @@ const routes: Routes = [ { path: 'accueil', component: AcceuilComponent  },
 { path: 'gestion', component: GestionComponent },
 { path: 'contact', component: ContactFormComponent },
 // Add more routes for other components as needed
-{ path: '', redirectTo: '/accueil', pathMatch: 'full' }, // Default route
+{ path: '', redirectTo: '/accueil', pathMatch: 'full' }, 
+{ path: '**', redirectTo: '/accueil' }, 
 ];
 
 @NgModule({
