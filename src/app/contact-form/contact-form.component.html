@@ -1,5 +1,5 @@
 <div class="contact-form-container">
-<form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+  <!-- <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
     <div>
       <label for="firstName">First Name</label>
       <input type="text" id="firstName" name="firstName" [(ngModel)]="formData.firstName" required>
@@ -24,8 +24,59 @@
       <label for="comment">Comment</label>
       <textarea id="comment" name="comment" [(ngModel)]="formData.comment" required></textarea>
     </div>
-    <button type="submit" [disabled]="!contactForm.valid">Send</button>
-  </form>
-  
+    <button type="submit" [disabled]="!contactForm.valid">Send</button> 
+    </form>
+  -->
 
+  <form class="contact-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field >
+      <mat-label>First Name</mat-label>
+      <input matInput formControlName="firstName" required />
+      <mat-error *ngIf="form.get('firstName')?.hasError('required')"
+        >First Name is required</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label>Last Name</mat-label>
+      <input matInput formControlName="lastName" required />
+      <mat-error *ngIf="form.get('lastName')?.hasError('required')"
+        >Last Name is required</mat-error
+      >
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label>Age</mat-label>
+      <input matInput type="number" formControlName="age" required />
+      <mat-error *ngIf="form.get('age')?.hasError('required')"
+        >Age is required</mat-error
+      >
+    </mat-form-field>
+
+    <mat-checkbox formControlName="hideEmail">Hide Email</mat-checkbox>
+
+    <div *ngIf="!form.get('hideEmail')?.value">
+      <mat-form-field class="w-100">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email" required />
+        <mat-error *ngIf="form.get('email')?.hasError('email')"
+          >Enter a valid email address</mat-error
+        >
+      </mat-form-field>
+    </div>
+
+    <mat-form-field >
+      <mat-label>Comment</mat-label>
+      <textarea matInput formControlName="comment" rows="5"></textarea>
+    </mat-form-field>
+
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      [disabled]="form.invalid"
+    >
+      Submit
+    </button>
+  </form>
 </div>

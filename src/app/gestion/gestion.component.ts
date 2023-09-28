@@ -13,5 +13,6 @@ export class GestionComponent {
 
   ngOnInit() {
     this.formData = this.formDataService.getFormData();
+    console.log(this.formData)
   }
 }
