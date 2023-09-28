@@ -7,7 +7,7 @@
     </button>
   </div>
   <div class="selected-movie" *ngIf="selectedMovie">
-    <h3>{{ selectedMovie.title }}</h3>
+    <h3 class="movie-title">{{ selectedMovie.title }}</h3>
     <img
       [src]="selectedMovie.posterUrl"
       alt="{{ selectedMovie.title }} Poster"
