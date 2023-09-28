@@ -12,13 +12,13 @@ import { ListeComponent } from './liste/liste.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { GestionComponent } from './gestion/gestion.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
-import { FormsModule,ReactiveFormsModule  } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatIconModule} from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
@@ -44,7 +44,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatCheckboxModule,
-    MatIconModule,MatExpansionModule
+    MatIconModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
