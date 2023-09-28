@@ -31,18 +31,20 @@ export class ContactFormComponent {
   }
 
   onSubmit() {
-    this.formDataService.setFormData(this.form.value);
-    alert('The form is valid');
-    this.router.navigateByUrl('/aceuil');
+    if (this.form.valid) {
+      this.formDataService.setFormData(this.form.value);
+      alert('The form is valid');
+      this.router.navigateByUrl('/aceuil');
+    }else{
+      alert('Something went wrong with the validation.');
+    }
   }
 
   changeValidatorOnClick() {
     if (this?.form?.get('hideEmail')?.value) {
-      console.log('remove Validators');
       this?.form?.get('email')?.clearValidators();
       this?.form?.get('email')?.updateValueAndValidity();
     } else {
-      console.log('setValidators');
       this?.form
         ?.get('email')
         ?.setValidators([Validators.required, Validators.email]);

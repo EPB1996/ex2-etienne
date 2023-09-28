@@ -1,33 +1,4 @@
 <div class="contact-form-container">
-  <!-- <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
-    <div>
-      <label for="firstName">First Name</label>
-      <input type="text" id="firstName" name="firstName" [(ngModel)]="formData.firstName" required>
-    </div>
-    <div>
-      <label for="lastName">Last Name</label>
-      <input type="text" id="lastName" name="lastName" [(ngModel)]="formData.lastName" required>
-    </div>
-    <div>
-      <label for="age">Age</label>
-      <input type="number" id="age" name="age" [(ngModel)]="formData.age">
-    </div>
-    <div>
-      <label for="hideEmail">Hide Email</label>
-      <input type="checkbox" id="hideEmail" name="hideEmail" [(ngModel)]="formData.hideEmail">
-    </div>
-    <div *ngIf="!formData.hideEmail">
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" [(ngModel)]="formData.email" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" required>
-    </div>
-    <div>
-      <label for="comment">Comment</label>
-      <textarea id="comment" name="comment" [(ngModel)]="formData.comment" required></textarea>
-    </div>
-    <button type="submit" [disabled]="!contactForm.valid">Send</button> 
-    </form>
-  -->
-
   <form class="contact-form" [formGroup]="form" (ngSubmit)="onSubmit()">
     <mat-form-field>
       <mat-label>First Name</mat-label>
@@ -53,7 +24,9 @@
       >
     </mat-form-field>
 
-    <mat-checkbox  (change)="changeValidatorOnClick()" formControlName="hideEmail"
+    <mat-checkbox
+      (change)="changeValidatorOnClick()"
+      formControlName="hideEmail"
       >Hide Email</mat-checkbox
     >
 
