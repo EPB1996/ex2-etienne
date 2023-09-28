@@ -25,12 +25,6 @@ export class ContactFormComponent {
     private fb: FormBuilder
   ) {}
 
-  ngOnInit() {
-    this?.form?.get('hideEmail')?.valueChanges.subscribe((value) => {
-      this?.form?.get('email')?.updateValueAndValidity();
-    });
-  }
-
   onSubmit() {
     if (this.form.valid) {
       const newFormData: FormDataInterface = this.form.value;
