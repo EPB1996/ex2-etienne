@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormDataService } from '../form-data.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AbstractControl, ValidatorFn } from '@angular/forms';
+
 @Component({
   selector: 'app-contact-form',
   templateUrl: './contact-form.component.html',
@@ -21,18 +21,16 @@ export class ContactFormComponent {
       lastName: ['', Validators.required],
       age: ['', Validators.required],
       hideEmail: [false],
-      email: ['', [Validators.email]],
+      email: ['', [requiredIfValidator()]],
       comment: [''],
     });
   }
-  /* public formData = {
-    firstName: '',
-    lastName: '',
-    age: null,
-    hideEmail: false,
-    email: '',
-    comment: '',
-  }; */
+
+  ngOnInit() {
+    this?.form?.get('hideEmail')?.valueChanges.subscribe((value) => {
+      this?.form?.get('email')?.updateValueAndValidity();
+    });
+  }
 
   onSubmit() {
     this.formDataService.setFormData(this.form.value);
@@ -41,17 +39,14 @@ export class ContactFormComponent {
   }
 }
 
-function conditionalRequiredValidator(
-  checkboxControlName: string
-): ValidatorFn {
-  return (control: AbstractControl): { [key: string]: any } | null => {
-    const checkbox = control.get(checkboxControlName);
-    const field = control.get("email"); // Replace 'controlName' with the name of the form control to be conditionally required
-
-    if (checkbox && checkbox.value && !field?.value) {
-      return { conditionalRequired: true };
+function requiredIfValidator() {
+  return (formControl: any) => {
+    if (!formControl.parent) {
+      return null;
     }
-
-    return null;
+    if (formControl.parent.get('hideEmail').value) {
+      return null;
+    }
+    return Validators.required(formControl);
   };
 }
