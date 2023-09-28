@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormDataService } from '../form-data.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormDataInterface } from '../model/model';
 
 @Component({
   selector: 'app-contact-form',
@@ -32,10 +33,11 @@ export class ContactFormComponent {
 
   onSubmit() {
     if (this.form.valid) {
-      this.formDataService.setFormData(this.form.value);
+      const newFormData: FormDataInterface = this.form.value;
+      this.formDataService.setFormData(newFormData);
       alert('The form is valid');
       this.router.navigateByUrl('/aceuil');
-    }else{
+    } else {
       alert('Something went wrong with the validation.');
     }
   }

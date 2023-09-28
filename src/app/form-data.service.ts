@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
+import { FormDataInterface } from './model/model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class FormDataService {
-  private formData: any = null;
+  private formData: FormDataInterface | null = null;
 
-  constructor() {}
-
-  setFormData(data: any) {
+  setFormData(data: FormDataInterface) {
     this.formData = data;
   }
 
-  getFormData() {
+  getFormData(): FormDataInterface | null {
     return this.formData;
   }
 }
