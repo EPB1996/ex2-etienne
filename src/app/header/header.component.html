@@ -2,9 +2,18 @@
   <div class="nav-container">
     <span class="nav-title">My Navigation</span>
     <div>
-      <a class="nav-link" mat-button routerLink="/accueil">Accueil</a>
-      <a class="nav-link" mat-button routerLink="/liste">Liste</a>
-      <a class="nav-link" mat-button routerLink="/gestion">Gestion</a>
+      <button class="header-button" mat-button routerLink="/accueil">
+        <mat-icon>home</mat-icon>
+        Aceuil
+      </button>
+      <button class="header-button" mat-button routerLink="/liste">
+        <mat-icon>movie</mat-icon>
+        Liste
+      </button>
+      <button class="header-button" mat-button routerLink="   /gestion">
+        <mat-icon>filter_list</mat-icon>
+        Gestion
+      </button>
     </div>
   </div>
 </mat-toolbar>
