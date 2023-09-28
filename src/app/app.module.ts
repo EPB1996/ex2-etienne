@@ -19,6 +19,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatIconModule} from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,7 @@ import {MatIconModule} from '@angular/material/icon';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatCheckboxModule,
-    MatIconModule
+    MatIconModule,MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent],
