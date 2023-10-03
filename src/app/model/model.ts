@@ -6,7 +6,7 @@ export interface Movie {
 export interface ContactData {
   firstName: string;
   lastName: string;
-  age: string;
+  age: string | null;
   hideEmail: boolean;
   email: string | null;
   comment: string;

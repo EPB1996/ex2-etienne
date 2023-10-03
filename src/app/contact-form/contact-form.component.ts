@@ -13,7 +13,7 @@ export class ContactFormComponent {
   form: FormGroup = this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    age: ['', Validators.required],
+    age: [''],
     hideEmail: [false],
     email: ['', [Validators.required, Validators.email]],
     comment: ['', Validators.required],
@@ -27,7 +27,11 @@ export class ContactFormComponent {
 
   onSubmit(): void {
     if (this.form.valid) {
-      const newContactData: ContactData = this.form.value;
+      const newContactData: ContactData = {
+        ...this.form.value,
+        age: this.form.value.age === '' ? null : this.form.value.age,
+        email: this.form.value.hideEmail ? null : this.form.value.email,
+      };
       this.formDataService.setFormData(newContactData);
       alert('The form is valid');
     } else {

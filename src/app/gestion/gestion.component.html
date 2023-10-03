@@ -3,7 +3,7 @@
     <h2>Contact Data</h2>
     <p>First Name: {{ formData.firstName }}</p>
     <p>Last Name: {{ formData.lastName }}</p>
-    <p>Age: {{ formData.age }}</p>
+    <p *ngIf="formData.age">Age: {{ formData.age }}</p>
     <p *ngIf="!formData.hideEmail">Email: {{ formData.email }}</p>
     <p>Comment: {{ formData.comment }}</p>
   </div>
