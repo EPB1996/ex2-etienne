@@ -12,8 +12,7 @@ export class GestionComponent {
 
   constructor(private formDataService: FormDataService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.formData = this.formDataService.getFormData();
-    console.log(this.formData)
   }
 }

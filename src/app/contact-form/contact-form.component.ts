@@ -25,18 +25,18 @@ export class ContactFormComponent {
     private fb: FormBuilder
   ) {}
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.form.valid) {
       const newContactData: ContactData = this.form.value;
       this.formDataService.setFormData(newContactData);
       alert('The form is valid');
-      this.router.navigateByUrl('/aceuil');
     } else {
       alert('Something went wrong with the validation.');
     }
+    this.router.navigateByUrl('/aceuil');
   }
 
-  changeValidatorOnClick() {
+  changeValidatorOnClick(): void {
     if (this?.form?.get('hideEmail')?.value) {
       this?.form?.get('email')?.clearValidators();
       this?.form?.get('email')?.updateValueAndValidity();

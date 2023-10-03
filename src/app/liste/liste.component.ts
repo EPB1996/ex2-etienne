@@ -15,7 +15,7 @@ export class ListeComponent {
     this.movies = movieService.getMovies();
   }
 
-  selectMovie(movie: Movie) {
+  selectMovie(movie: Movie): void {
     this.selectedMovie = movie;
   }
 }
