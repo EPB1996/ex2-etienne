@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { FormDataService } from './service/form-data.service';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatIconModule,
     MatExpansionModule,
   ],
-  providers: [],
+  providers: [FormDataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

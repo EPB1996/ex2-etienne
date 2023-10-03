@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { FormDataService } from '../form-data.service';
-import { FormDataInterface } from '../model/model';
+import { FormDataService } from '../service/form-data.service';
+import { ContactData } from '../model/model';
 
 @Component({
   selector: 'app-gestion',
@@ -8,11 +8,12 @@ import { FormDataInterface } from '../model/model';
   styleUrls: ['./gestion.component.scss'],
 })
 export class GestionComponent {
-  formData: FormDataInterface | null = null;
+  formData: ContactData | null = null;
 
   constructor(private formDataService: FormDataService) {}
 
   ngOnInit() {
     this.formData = this.formDataService.getFormData();
+    console.log(this.formData)
   }
 }

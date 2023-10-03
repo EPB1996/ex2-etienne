@@ -3,7 +3,7 @@ export interface Movie {
   posterUrl: string;
 }
 
-export interface FormDataInterface {
+export interface ContactData {
   firstName: string;
   lastName: string;
   age: string;

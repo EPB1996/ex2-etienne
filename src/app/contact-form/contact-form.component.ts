@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { FormDataService } from '../form-data.service';
+import { FormDataService } from '../service/form-data.service';
 import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { FormDataInterface } from '../model/model';
+import { ContactData } from '../model/model';
 
 @Component({
   selector: 'app-contact-form',
@@ -27,8 +27,8 @@ export class ContactFormComponent {
 
   onSubmit() {
     if (this.form.valid) {
-      const newFormData: FormDataInterface = this.form.value;
-      this.formDataService.setFormData(newFormData);
+      const newContactData: ContactData = this.form.value;
+      this.formDataService.setFormData(newContactData);
       alert('The form is valid');
       this.router.navigateByUrl('/aceuil');
     } else {
